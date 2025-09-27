@@ -52,7 +52,7 @@ public class Main {
         long endTime = System.nanoTime();
         double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
         // Print elapsed time
-        System.out.println("Bubble Sort Time taken: " + elapsedTimeInSeconds + " seconds");
+        System.out.println("Bubble Sort Time taken: " + Double.toString(elapsedTimeInSeconds) + " seconds");
         
         saveNumbers(sortedNums,"sortednumbBubbleSort.txt");
  
@@ -72,7 +72,7 @@ public class Main {
 	    
         long endTime = System.nanoTime();
         double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
-        System.out.println("QuickSort Time taken: " + elapsedTimeInSeconds + " seconds");
+        System.out.println("QuickSort Time taken: " + Double.toString(elapsedTimeInSeconds) + " seconds");
         
         saveNumbers(sortedNums,"sortednumbQuickSort.txt");
  
@@ -92,7 +92,7 @@ public class Main {
 	    
         long endTime = System.nanoTime();
         double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
-        System.out.println("MergeSort Time taken: " + elapsedTimeInSeconds + " seconds");
+        System.out.println("MergeSort Time taken: " + Double.toString(elapsedTimeInSeconds) + " seconds");
         
         saveNumbers(sortedNums,"sortednumbMergeSort.txt");
  
@@ -130,7 +130,7 @@ public class Main {
         long endTime = System.nanoTime();
         double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
         // Print elapsed time
-        System.out.println("Binary Search Time taken: " + elapsedTimeInSeconds + " seconds");
+        System.out.println("Binary Search Time taken: " + Double.toString(elapsedTimeInSeconds) + " seconds");
         return foundValue;
 	}
 	
