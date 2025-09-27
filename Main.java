@@ -25,7 +25,6 @@ public class Main {
 		
 		System.out.println();
 		
-		// Record start time
 		runBubbleSort();
 		System.out.println();
 		runQuickSort();
