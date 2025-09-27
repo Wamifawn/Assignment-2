@@ -1,13 +1,13 @@
 package pkg;
 
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Stack;
 import java.util.Random;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.BufferedReader; 
 import java.io.FileReader;
-import java.io.File;
+ 
 
 public class Main {
 	
@@ -25,8 +25,17 @@ public class Main {
 		
 		// Record start time
 		runBubbleSort();
-		
+		runQuickSort();
+        runMergeSort();
         
+        nums = readNumbers(NUM_FILE_NAME);
+		
+ 
+		QuickSort qs = new QuickSort();
+		int[] sortedNums = qs.sort(nums, 0, nums.length -1);
+		runBinarySearch( sortedNums,1);
+		runBinarySearch( sortedNums,500);
+		runBinarySearch( sortedNums,900);
 	}
 
 	public static void runBubbleSort()
@@ -50,6 +59,46 @@ public class Main {
  
 	}
 	
+	public static void runQuickSort()
+	{
+		System.out.println("Quick Sort");
+				
+		int[] nums = new int[1000];
+		
+		nums = readNumbers(NUM_FILE_NAME);
+		
+		long startTime = System.nanoTime();
+		QuickSort qs = new QuickSort();
+		int[] sortedNums = qs.sort(nums, 0, nums.length -1);
+	    
+        long endTime = System.nanoTime();
+        double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
+        System.out.println("\nQuickSort Time taken: " + elapsedTimeInSeconds + " seconds");
+        
+        saveNumbers(sortedNums,"sortednumbQuickSort.txt");
+ 
+	}
+	
+	public static void runMergeSort()
+	{
+		System.out.println("Merge Sort");
+				
+		int[] nums = new int[1000];
+		
+		nums = readNumbers(NUM_FILE_NAME);
+		
+		long startTime = System.nanoTime();
+		MergeSort ms = new MergeSort();
+		int[] sortedNums = ms.sort(nums, 0, nums.length - 1);
+	    
+        long endTime = System.nanoTime();
+        double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
+        System.out.println("\nMergeSort Time taken: " + elapsedTimeInSeconds + " seconds");
+        
+        saveNumbers(sortedNums,"sortednumbMergeSort.txt");
+ 
+	}
+	
 	public static int runLinearSearch(int searchValue)
 	{
 		 System.out.println("Linear Search for " + Integer.toString(searchValue));
@@ -66,6 +115,26 @@ public class Main {
         double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
         // Print elapsed time
         System.out.println("\nLinear Search Time taken: " + elapsedTimeInSeconds + " seconds");
+        return foundValue;
+	}
+	
+	public static int runBinarySearch(int[] nums,int searchValue)
+	{
+		System.out.println("Binary Search for " + Integer.toString(searchValue));
+	 		
+		nums = readNumbers(NUM_FILE_NAME);
+		
+		long startTime = System.nanoTime();	
+		 
+		BinarySearch bs = new BinarySearch();
+		
+		int foundValue = bs.binarySearch(nums, searchValue);
+		
+	    // Record end time
+        long endTime = System.nanoTime();
+        double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
+        // Print elapsed time
+        System.out.println("\nBinary Search Time taken: " + elapsedTimeInSeconds + " seconds");
         return foundValue;
 	}
 	
