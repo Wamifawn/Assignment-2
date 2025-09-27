@@ -31,7 +31,6 @@ public class Main {
 		System.out.println();
         runMergeSort();
     	System.out.println();
-        nums = readNumbers(NUM_FILE_NAME);
 				 
 		runBinarySearch(1);
 		runBinarySearch(500);
